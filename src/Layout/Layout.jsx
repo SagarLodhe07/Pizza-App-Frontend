@@ -7,7 +7,7 @@ function Layout({ children }) {
       <nav className="flex items-center justify-around h-16 font-mono text=[#6b7280] border-none shadow-md">
        {/* For Logo */}
         <div className="flex items-center justify-center">
-          <p>Pizza App</p>
+          <p className="mr-3">Pizza App</p>
           <img src={Logo} width={30} alt="Pizzalogo" srcset="" />
         </div>
         <div className=" hidden md:block">
