@@ -152,15 +152,15 @@ function SignUpPresentation({ handleSignUp, handlerUserInput }) {
             {/* For label & Input */}
             <div className="relative mb-4">
               <label
-                htmlFor="firstname"
+                htmlFor="firstName"
                 className="text-sm leading-7 text-gray-600"
               >
                 First Name
               </label>
               <input
                 type="text"
-                id="firstname"
-                name="firstname"
+                id="firstName"
+                name="firstName"
                 required
                 onChange={handlerUserInput}
                 placeholder="John"
@@ -188,15 +188,15 @@ function SignUpPresentation({ handleSignUp, handlerUserInput }) {
             </div>
             <div className="relative mb-4">
               <label
-                htmlFor="mobilenumber"
+                htmlFor="mobileNumber"
                 className="text-sm leading-7 text-gray-600"
               >
                 Mobile Number<span className="text-red-600 ">*</span>
               </label>
               <input
                 type="text"
-                id="mobilenumber"
-                name="mobilenumber"
+                id="mobileNumber"
+                name="mobileNumber"
                 required
                 onChange={handlerUserInput}
                 maxLength={12}

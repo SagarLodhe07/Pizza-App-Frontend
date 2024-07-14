@@ -4,7 +4,7 @@ function AddProduct() {
   return (
     <Layout>
       <section className="py-12">
-        <div className="flex items-center justify-around">
+        <div className="flex items-center justify-center px-5">
           {/* Div For Side SVG */}
           <div className="md:w-1/2">
             <img src={FoodSVG} alt="" srcset="" />
@@ -125,7 +125,8 @@ function AddProduct() {
                   htmlFor="productImage"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Select Image
+                  Select Image{" "}
+                  <span className="text-red-500">(.jpeg ,.jpg ,.png)</span>
                 </label>
                 <input
                   type="file"

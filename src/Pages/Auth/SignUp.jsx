@@ -1,13 +1,18 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SignUpPresentation from "./SignUpPresentation";
+import { useDispatch } from "react-redux";
+import { createAccount } from "../../Redux/Slices/AuthSlice";
 
 function SignUp() {
-  const [signUpState, setSignupState] = useState({
-    firstname: "",
+
+    const dispatch = useDispatch()
+    
+    const [signUpState, setSignupState] = useState({
+    firstName: "",
     email: "",
     password: "",
-    mobilenumber: "",
+    mobileNumber: "",
   });
 
   function handlerUserInput(event) {
@@ -17,14 +22,14 @@ function SignUp() {
       [name]: value,
     });
   }
-  function handleSignUp(e) {
+   async function handleSignUp(e) {
     e.preventDefault();
     // console.log(signUpState);
 
     if (
       !signUpState.email ||
-      !signUpState.firstname ||
-      !signUpState.mobilenumber ||
+      !signUpState.firstName ||
+      !signUpState.mobileNumber ||
       !signUpState.password
     ) {
       // For Pop up alert on window
@@ -32,7 +37,7 @@ function SignUp() {
       return;
     }
 
-    if (signUpState.firstname.length < 3 || signUpState.firstname.length > 20) {
+    if (signUpState.firstName.length < 3 || signUpState.firstName.length > 20) {
       toast.error(
         "First Name should be atleast 3 charcter long and maximum 20 characters long"
       );
@@ -41,11 +46,16 @@ function SignUp() {
       toast.error("Invalid email");
     }
     if (
-      signUpState.mobilenumber.length < 10 ||
-      signUpState.mobilenumber.length > 12
+      signUpState.mobileNumber.length < 10 ||
+      signUpState.mobileNumber.length > 12
     ) {
       toast.error("Mobile Number should be between 10-12 digits");
     }
+    
+      const apiResponse =  await dispatch(createAccount(signUpState))
+      console.log('Api Response is',apiResponse);
+
+
   }
 
   return (

@@ -7,6 +7,7 @@ import CustomerImage from "../assets/IMG/customer.png";
 import IconPatchCheck from "../Components/Icons/IconPatchCheck";
 import Layout from "../Layout/Layout";
 function Home() {
+  // console.log(import.meta.env)
   return (
     <Layout>
     <div>
