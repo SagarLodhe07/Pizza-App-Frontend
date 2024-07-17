@@ -3,9 +3,10 @@ import toast from "react-hot-toast";
 import SignUpPresentation from "./SignUpPresentation";
 import { useDispatch } from "react-redux";
 import { createAccount } from "../../Redux/Slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
-
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     
     const [signUpState, setSignupState] = useState({
@@ -54,7 +55,8 @@ function SignUp() {
     
       const apiResponse =  await dispatch(createAccount(signUpState))
       console.log('Api Response is',apiResponse);
-
+      // redirect to Login page if api success
+      if(apiResponse.payload.data.success)  navigate('/auth/login')
 
   }
 

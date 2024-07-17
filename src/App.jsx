@@ -6,6 +6,7 @@ import Login from "./Pages/Auth/Login";
 import NotFound from "./Pages/Auth/NotFound";
 import AccessDenied from "./Pages/Auth/DeniedAccess";
 import AddProduct from "./Pages/Admin/Addproduct";
+import ProductDetails from "./Pages/ProductDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/admin/addproduct" element={<AddProduct />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
