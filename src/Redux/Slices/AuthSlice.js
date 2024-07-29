@@ -3,7 +3,7 @@ import axiosIntance from "../../Helpers/axiosInstance";
 import toast from "react-hot-toast";
 
 const initialState = {
-  isLoggedin: localStorage.getItem("isLoggedin") === "true" || "false",
+  isLoggedin: localStorage.getItem("isLoggedin") === 'true' || false,
   role: localStorage.getItem("role") || "",
   data: JSON.parse(localStorage.getItem("data")) || {},
 };

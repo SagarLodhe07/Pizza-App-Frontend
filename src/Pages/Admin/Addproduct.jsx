@@ -2,9 +2,9 @@ import { useState } from "react";
 import Layout from "../../Layout/Layout";
 import FoodSVG from "../../assets/IMG/food.svg";
 function AddProduct() {
-  const [product,setproduct] =useState({
+  // const [product,setproduct] =useState({
     
-  })
+  // })
   return (
     <Layout>
       <section className="py-12">

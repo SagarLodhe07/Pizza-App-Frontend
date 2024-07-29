@@ -7,16 +7,16 @@ const initialState = {
 };
 
 const cartSlice = createSlice({
-    name: 'cart',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-      builder.addCase(getCartDetails.fulfilled, (state, action) => {
-        state.cartsData = action?.payload?.data?.data;
-      });
-    },
-  });
-  export default cartSlice.reducer;
+  name: "cart",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(getCartDetails.fulfilled, (state, action) => {
+      state.cartsData = action?.payload?.data?.data;
+    });
+  },
+});
+export default cartSlice.reducer;
 
 export const removeFromCart = createAsyncThunk(
   "/cart/removeProduct",
@@ -56,7 +56,7 @@ export const addToCart = createAsyncThunk(
 );
 export const getCartDetails = createAsyncThunk("/cart/getDetails", async () => {
   try {
-    const response = axiosIntance.get('/carts');
+    const response = axiosIntance.get("/carts");
     toast.promise(response, {
       loading: "fetching Cart",
       success: "Fetched successfully",
@@ -65,8 +65,13 @@ export const getCartDetails = createAsyncThunk("/cart/getDetails", async () => {
     const apiResponse = await response;
     return apiResponse;
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
+    if (error?.response?.status ===404) {
+      toast.error('Please Login to view cart')
+      return{
+        isUnauthorized:true
+      }
+    }
     toast.error("Something went wrong");
   }
 });
-

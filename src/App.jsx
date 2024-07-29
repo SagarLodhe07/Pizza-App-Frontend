@@ -7,6 +7,10 @@ import NotFound from "./Pages/Auth/NotFound";
 import AccessDenied from "./Pages/Auth/DeniedAccess";
 import AddProduct from "./Pages/Admin/Addproduct";
 import ProductDetails from "./Pages/ProductDetails";
+import Cart from "./Pages/Cart/Cart";
+import Order from "./Pages/Order/Order";
+import OrderSuccess from "./Pages/Order/OrderSuccess";
+import RequireAuth from "./Pages/Auth/RequireAuth";
 
 function App() {
   return (
@@ -16,6 +20,15 @@ function App() {
         <Route path="/denied" element={<AccessDenied />} />
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/auth/login" element={<Login />} />
+
+        <Route element={<RequireAuth requiredRole ={'ADMIN'}/>}>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/order/success" element={<OrderSuccess />} />
+        </Route>
+
+
+
         <Route path="/admin/addproduct" element={<AddProduct />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="*" element={<NotFound />} />

@@ -31,7 +31,7 @@ function ProductDetails() {
     }
   }
   async function handleRemove() {
-    const response = await dispatch(removeFromCart(productID));
+    const response = await dispatch(removeFromCart(productId));
     if (response?.payload?.data?.success) {
       setIsInCart(false);
       dispatch(getCartDetails());
